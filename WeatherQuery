@@ -1,0 +1,16 @@
+  GNU nano 6.2                                                                  weather.py                                                                           import requests
+from pprint import pprint
+Key = 'ba92454fa772422b9ebbc053b6b6eeb7'
+params = {
+        'city': 'pittsburgh',
+        'country': 'US',
+        'units': 'I'}
+BASE_URL = "https://api.weatherbit.io/v2.0/current?"
+for key, value in params.items():
+        BASE_URL += key + '=' + value + '&'
+BASE_URL += 'key={}'.format(Key)
+Data = requests.get(BASE_URL)
+Weather = Data.json()
+pprint(Weather)
+
+
